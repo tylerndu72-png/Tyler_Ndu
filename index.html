@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Morgan — Creative Developer & Designer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .page-transition {
+            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-red-50/60 text-stone-900 antialiased min-h-screen flex flex-col justify-between transition-colors duration-300">
+
+    <!-- Header / Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-red-50/80 backdrop-blur-md border-b border-red-200/60">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#home" onclick="switchPage('home')" class="font-bold text-xl tracking-tight bg-gradient-to-r from-rose-600 to-red-600 bg-clip-text text-transparent">
+                Alex.Morgan
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <button onclick="switchPage('home')" id="nav-home" class="nav-link text-rose-600 transition-colors">Home</button>
+                <button onclick="switchPage('about')" id="nav-about" class="nav-link text-stone-600 hover:text-rose-600 transition-colors">About</button>
+                <button onclick="switchPage('projects')" id="nav-projects" class="nav-link text-stone-600 hover:text-rose-600 transition-colors">Projects</button>
+                <button onclick="switchPage('contact')" id="nav-contact" class="nav-link text-stone-600 hover:text-rose-600 transition-colors">Contact</button>
+            </nav>
+
+            <!-- Utility Controls -->
+            <div class="flex items-center space-x-3">
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" aria-label="Toggle Menu" class="md:hidden p-2 rounded-lg hover:bg-red-100 text-stone-700">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-red-200 bg-red-50 px-4 pt-2 pb-4 space-y-2">
+            <button onclick="switchPage('home'); toggleMobileMenu();" class="block w-full text-left py-2 px-3 rounded-md font-medium hover:bg-red-100">Home</button>
+            <button onclick="switchPage('about'); toggleMobileMenu();" class="block w-full text-left py-2 px-3 rounded-md font-medium hover:bg-red-100">About</button>
+            <button onclick="switchPage('projects'); toggleMobileMenu();" class="block w-full text-left py-2 px-3 rounded-md font-medium hover:bg-red-100">Projects</button>
+            <button onclick="switchPage('contact'); toggleMobileMenu();" class="block w-full text-left py-2 px-3 rounded-md font-medium hover:bg-red-100">Contact</button>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow">
+
+        <!-- ================= HOME PAGE ================= -->
+        <section id="page-home" class="page-view max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24 page-transition">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-100 border border-rose-200 text-rose-700 text-xs font-semibold uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-rose-600 animate-pulse"></span> Available for new projects
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-stone-900">
+                        Crafting digital <span class="bg-gradient-to-r from-rose-600 to-red-600 bg-clip-text text-transparent">experiences</span> that matter.
+                    </h1>
+                    <p class="text-lg text-stone-600 max-w-lg">
+                        I'm Alex Morgan, a full-stack developer and UI/UX designer focused on building clean, accessible, and high-performance web applications.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <button onclick="switchPage('projects')" class="px-6 py-3 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-medium shadow-lg shadow-rose-600/20 transition-all transform hover:-translate-y-0.5">
+                            Explore Projects <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                        </button>
+                        <button onclick="switchPage('contact')" class="px-6 py-3 rounded-xl border border-rose-300 hover:bg-rose-100 font-medium transition-all text-stone-800">
+                            Get in Touch
+                        </button>
+                    </div>
+                </div>
+                <div class="relative flex justify-center">
+                    <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-rose-500 to-red-500 opacity-20 blur-xl"></div>
+                    <div class="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden shadow-2xl border border-rose-200">
+                        <!-- Unsplash Royalty Free Image -->
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" 
+                             alt="Alex Morgan Portrait" 
+                             class="w-full h-full object-cover"
+                             onerror="this.src='https://placehold.co/800x800/fecdd3/881337?text=Alex+Morgan'">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Highlight Bar -->
+            <div class="mt-20 pt-12 border-t border-rose-200 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div>
+                    <p class="text-3xl font-bold text-rose-600">5+</p>
+                    <p class="text-sm text-stone-600 mt-1">Years Experience</p>
+                </div>
+                <div>
+                    <p class="text-3xl font-bold text-rose-600">40+</p>
+                    <p class="text-sm text-stone-600 mt-1">Completed Projects</p>
+                </div>
+                <div>
+                    <p class="text-3xl font-bold text-rose-600">100%</p>
+                    <p class="text-sm text-stone-600 mt-1">Client Satisfaction</p>
+                </div>
+                <div>
+                    <p class="text-3xl font-bold text-rose-600">15+</p>
+                    <p class="text-sm text-stone-600 mt-1">Open Source Repos</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ABOUT PAGE ================= -->
+        <section id="page-about" class="page-view max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24 hidden page-transition">
+            <div class="space-y-16">
+                <!-- Heading -->
+                <div class="text-center space-y-4 max-w-2xl mx-auto">
+                    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-stone-900">About Me</h1>
+                    <p class="text-stone-600 text-lg">A glimpse into my background, design philosophy, and technical skillset.</p>
+                </div>
+
+                <!-- Bio Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
+                    <div class="md:col-span-1">
+                        <div class="aspect-square rounded-3xl overflow-hidden shadow-lg border border-rose-200">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" 
+                                 alt="Alex Working" 
+                                 class="w-full h-full object-cover"
+                                 onerror="this.src='https://placehold.co/600x600/fecdd3/881337?text=Alex'">
+                        </div>
+                    </div>
+                    <div class="md:col-span-2 space-y-4 text-stone-700 leading-relaxed">
+                        <h3 class="text-2xl font-bold text-stone-900">Hi again! I'm Alex.</h3>
+                        <p>
+                            I have spent over 5 years designing and developing user-centric digital products across various industries, from early-stage startups to established enterprises. My approach merges rigorous engineering practices with thoughtful aesthetic design.
+                        </p>
+                        <p>
+                            When I'm not writing code or refining user interfaces, you can find me exploring landscape photography, contributing to open-source libraries, or experimenting with generative design art.
+                        </p>
+                        <div class="pt-4 flex flex-wrap gap-3">
+                            <span class="px-4 py-2 rounded-xl bg-white border border-rose-200 shadow-sm text-sm font-semibold text-rose-700"><i class="fa-solid fa-graduation-cap mr-2"></i> B.S. in Computer Science</span>
+                            <span class="px-4 py-2 rounded-xl bg-white border border-rose-200 shadow-sm text-sm font-semibold text-rose-700"><i class="fa-solid fa-location-dot mr-2"></i> San Francisco, CA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Section -->
+                <div class="space-y-6 pt-8 border-t border-rose-200">
+                    <h3 class="text-2xl font-bold text-stone-900 text-center">Core Technical Expertise</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                        <div class="p-5 rounded-2xl bg-white border border-rose-200 shadow-sm text-center space-y-2 hover:border-rose-400 transition-all">
+                            <i class="fa-brands fa-react text-3xl text-rose-600"></i>
+                            <h4 class="font-bold text-stone-900">React & Next.js</h4>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-white border border-rose-200 shadow-sm text-center space-y-2 hover:border-rose-400 transition-all">
+                            <i class="fa-solid fa-code text-3xl text-rose-600"></i>
+                            <h4 class="font-bold text-stone-900">TypeScript</h4>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-white border border-rose-200 shadow-sm text-center space-y-2 hover:border-rose-400 transition-all">
+                            <i class="fa-solid fa-palette text-3xl text-rose-600"></i>
+                            <h4 class="font-bold text-stone-900">UI/UX Design</h4>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-white border border-rose-200 shadow-sm text-center space-y-2 hover:border-rose-400 transition-all">
+                            <i class="fa-solid fa-database text-3xl text-rose-600"></i>
+                            <h4 class="font-bold text-stone-900">Node & SQL</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PROJECTS PAGE ================= -->
+        <section id="page-projects" class="page-view max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24 hidden page-transition">
+            <div class="space-y-12">
+                <div class="text-center space-y-4 max-w-2xl mx-auto">
+                    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-stone-900">Featured Projects</h1>
+                    <p class="text-stone-600 text-lg">A selection of recent applications, open-source work, and client solutions.</p>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Project Card 1 -->
+                    <div class="group bg-white rounded-3xl overflow-hidden border border-rose-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="aspect-video w-full overflow-hidden bg-rose-100 relative">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Analytics Dashboard" 
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                     onerror="this.src='https://placehold.co/600x400/fecdd3/881337?text=Dashboard'">
+                            </div>
+                            <div class="p-6 space-y-3">
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded-md bg-rose-100 text-rose-700 text-xs font-semibold">React</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-red-100 text-red-700 text-xs font-semibold">Tailwind</span>
+                                </div>
+                                <h3 class="text-xl font-bold tracking-tight text-stone-900">SaaS Metrics Dashboard</h3>
+                                <p class="text-sm text-stone-600">
+                                    Real-time financial and user growth analytics platform featuring customizable widgets and interactive charts.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0 flex items-center space-x-4">
+                            <a href="#" onclick="showNotification('Opening live demo...')" class="text-sm font-semibold text-rose-600 hover:underline flex items-center gap-1">
+                                Live Demo <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                            </a>
+                            <a href="#" onclick="showNotification('Opening source code repository...')" class="text-sm font-semibold text-stone-600 hover:underline flex items-center gap-1">
+                                GitHub <i class="fa-brands fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="group bg-white rounded-3xl overflow-hidden border border-rose-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="aspect-video w-full overflow-hidden bg-rose-100 relative">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" 
+                                     alt="E-Commerce Storefront" 
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                     onerror="this.src='https://placehold.co/600x400/fecdd3/881337?text=E-Commerce'">
+                            </div>
+                            <div class="p-6 space-y-3">
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded-md bg-rose-100 text-rose-700 text-xs font-semibold">Next.js</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-red-100 text-red-700 text-xs font-semibold">Stripe</span>
+                                </div>
+                                <h3 class="text-xl font-bold tracking-tight text-stone-900">Artisan E-Commerce Store</h3>
+                                <p class="text-sm text-stone-600">
+                                    High-conversion online storefront optimized for lightning-fast page loads and secure multi-currency checkouts.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0 flex items-center space-x-4">
+                            <a href="#" onclick="showNotification('Opening live demo...')" class="text-sm font-semibold text-rose-600 hover:underline flex items-center gap-1">
+                                Live Demo <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                            </a>
+                            <a href="#" onclick="showNotification('Opening source code repository...')" class="text-sm font-semibold text-stone-600 hover:underline flex items-center gap-1">
+                                GitHub <i class="fa-brands fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="group bg-white rounded-3xl overflow-hidden border border-rose-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="aspect-video w-full overflow-hidden bg-rose-100 relative">
+                                <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Task Management App" 
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                     onerror="this.src='https://placehold.co/600x400/fecdd3/881337?text=Task+App'">
+                            </div>
+                            <div class="p-6 space-y-3">
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded-md bg-rose-100 text-rose-700 text-xs font-semibold">Vue.js</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-red-100 text-red-700 text-xs font-semibold">Firebase</span>
+                                </div>
+                                <h3 class="text-xl font-bold tracking-tight text-stone-900">Kanban Task Manager</h3>
+                                <p class="text-sm text-stone-600">
+                                    Collaborative project management board with drag-and-drop task items and real-time team synchronization.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0 flex items-center space-x-4">
+                            <a href="#" onclick="showNotification('Opening live demo...')" class="text-sm font-semibold text-rose-600 hover:underline flex items-center gap-1">
+                                Live Demo <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                            </a>
+                            <a href="#" onclick="showNotification('Opening source code repository...')" class="text-sm font-semibold text-stone-600 hover:underline flex items-center gap-1">
+                                GitHub <i class="fa-brands fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CONTACT PAGE ================= -->
+        <section id="page-contact" class="page-view max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24 hidden page-transition">
+            <div class="space-y-12">
+                <div class="text-center space-y-4">
+                    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-stone-900">Get in Touch</h1>
+                    <p class="text-stone-600 text-lg">Have a project in mind or want to chat? Send me a message.</p>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 border border-rose-200 shadow-xl">
+                    <form onsubmit="handleContactSubmit(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-sm font-medium text-stone-700" for="name">Your Name</label>
+                                <input required type="text" id="name" placeholder="John Doe" 
+                                       class="w-full px-4 py-3 rounded-xl bg-red-50/50 border border-rose-200 text-stone-900 focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all text-sm">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-medium text-stone-700" for="email">Your Email</label>
+                                <input required type="email" id="email" placeholder="john@example.com" 
+                                       class="w-full px-4 py-3 rounded-xl bg-red-50/50 border border-rose-200 text-stone-900 focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all text-sm">
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium text-stone-700" for="subject">Subject</label>
+                            <input required type="text" id="subject" placeholder="Project Inquiry" 
+                                   class="w-full px-4 py-3 rounded-xl bg-red-50/50 border border-rose-200 text-stone-900 focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all text-sm">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium text-stone-700" for="message">Message</label>
+                            <textarea required rows="5" id="message" placeholder="Tell me about your project..." 
+                                      class="w-full px-4 py-3 rounded-xl bg-red-50/50 border border-rose-200 text-stone-900 focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all text-sm"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-semibold shadow-lg shadow-rose-600/20 transition-all">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-red-100/60 border-t border-rose-200 py-8 mt-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-stone-600">
+                &copy; 2026 Alex Morgan. All rights reserved.
+            </p>
+            <div class="flex items-center space-x-6">
+                <a href="#" onclick="showNotification('Opening GitHub...')" class="text-stone-600 hover:text-rose-600 text-lg transition-colors"><i class="fa-brands fa-github"></i></a>
+                <a href="#" onclick="showNotification('Opening LinkedIn...')" class="text-stone-600 hover:text-rose-600 text-lg transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" onclick="showNotification('Opening Twitter / X...')" class="text-stone-600 hover:text-rose-600 text-lg transition-colors"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" onclick="showNotification('Opening Dribbble...')" class="text-stone-600 hover:text-rose-600 text-lg transition-colors"><i class="fa-brands fa-dribbble"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-stone-900 text-white border border-stone-800 px-6 py-3 rounded-2xl shadow-xl font-medium text-sm flex items-center space-x-3">
+        <i class="fa-solid fa-circle-check text-rose-400"></i>
+        <span id="toast-message">Action successful</span>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Switch between pages in Single-Page application style
+        function switchPage(pageId) {
+            const pages = document.querySelectorAll('.page-view');
+            pages.forEach(p => p.classList.add('hidden'));
+
+            const targetPage = document.getElementById('page-' + pageId);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+            }
+
+            // Update desktop active nav styles
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('text-rose-600');
+                link.classList.add('text-stone-600');
+            });
+
+            const activeNav = document.getElementById('nav-' + pageId);
+            if (activeNav) {
+                activeNav.classList.remove('text-stone-600');
+                activeNav.classList.add('text-rose-600');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Toggle mobile drawer navigation
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Show toast notification instead of alert()
+        function showNotification(message) {
+            const toast = document.getElementById('toast');
+            const msgSpan = document.getElementById('toast-message');
+            msgSpan.textContent = message;
+
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3000);
+        }
+
+        // Handle contact form submission
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            showNotification('Thank you! Your message has been sent successfully.');
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
